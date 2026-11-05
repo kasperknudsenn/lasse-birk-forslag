@@ -368,4 +368,5 @@ ul,ol{list-style:none}
 .values li{border-top:2px solid var(--brass)}
 .top .wm{color:var(--navy)}
 .ft{--ink:#F3EFE6;--muted:rgba(243,239,230,.7);--line:rgba(243,239,230,.18);background:var(--navy);color:var(--ink);border-top:0}
-@media (max-width:760px){.hero h1,.hero.pg h1{font-size:31px}.sec h2{font-size:28px}.nums b{font-size:24px}.paths b{font-size:20px}}
+@media (max-width:760px){.hero h1,.hero.pg h1{font-size:31px}.sec h2{font-size:28px}.nums b{font-size:24px}.paths b{font-size:20px}
+ .portrait,.method .pic,.practice .pic,.about img,.band img,.end img{outline-offset:7px}}
