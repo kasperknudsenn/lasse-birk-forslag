@@ -53,7 +53,7 @@ body.kmt-mode,body.kmt-mode *{cursor:crosshair!important}
 #kmt-toast.kmt-ok{background:#08201B}
 #kmt-bar button.kmt-send{background:#10D99B;color:#05291F}
 #kmt-panel .kmt-mail{display:inline-block;margin-top:10px;font-size:13px;color:#08201B}
-@media (max-width:600px){#kmt-bar{left:16px;justify-content:flex-end;flex-wrap:wrap}#kmt-bar button{padding:9px 13px}}`;
+@media (max-width:600px){#kmt-bar{left:12px;right:12px;justify-content:flex-end;gap:6px}#kmt-bar button{font-size:13px;padding:9px 11px}}`;
   document.head.appendChild(st);
 
   const ui = document.createElement('div');
