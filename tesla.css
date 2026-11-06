@@ -37,6 +37,15 @@ html:has(body.tesla){scroll-snap-type:y proximity;scroll-padding-top:0}
 .t-scr.pill{background:var(--pillbg)}
 .t-scr.pill picture{position:absolute;left:0;right:0;bottom:0;top:12%;z-index:0}
 .t-scr.pill .t-bg{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 22%);mask-image:linear-gradient(180deg,transparent 0,#000 22%)}
+/* æsken med 48 kapsler: baggrunden matcher fotoet */
+.t-scr.box{--pillbg:#EFE3D2}   /* fotoets kantfarve, så fotoet toner ud i baggrunden */
+.t-scr.box picture{top:19%;bottom:13%}
+.t-scr.box .t-bg{object-fit:contain;-webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 58%,transparent 100%);mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 58%,transparent 100%)}
+.t-points{list-style:none;margin:18px 0 0;padding:0;font-size:14px;line-height:1.5;color:var(--muted)}
+.t-points li{padding:3px 0}.t-points a{color:inherit}
+.t-list.five{grid-template-columns:repeat(5,minmax(0,200px))}
+.t-list.vals span{color:var(--muted)}
+.t-list.vals{grid-template-columns:repeat(3,minmax(0,280px))}
 /* beviser: logoer og 3 store tal */
 .t-kicker{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 26px}
 .t-logos{list-style:none;margin:0;padding:0;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:24px clamp(32px,5vw,72px)}
@@ -81,11 +90,19 @@ html:has(body.tesla){scroll-snap-type:y proximity;scroll-padding-top:0}
  .t-cta{flex-direction:column;align-items:stretch;width:100%;gap:12px}
  .t-btn{width:100%;min-width:0}
  .t-scr.pill picture{top:18%}
+ .t-scr.box picture{top:24%;bottom:17%}
+ .t-scr.box{--pillbg:#F2E7DA}
+ /* lyst foto på mobil: teksten står på creme, og fotoet glider ind nedenunder */
+ .t-scr.lyst{background:var(--cream)}
+ .t-scr.lyst .t-bg{top:auto;bottom:0;height:72%;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 16%);mask-image:linear-gradient(180deg,transparent 0,#000 16%)}
+ .t-scr.lyst:after{background:linear-gradient(180deg,rgba(8,12,20,0) 60%,rgba(8,12,20,.62) 100%)}
  .t-logos{gap:20px 30px}
  .t-nums{flex-direction:column;gap:30px}
  .t-nums b{font-size:48px}
  .t-scr.proof{gap:56px}
  .t-list{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px 18px;width:100%}
  .t-list b{font-size:19px}
+ .t-list.five{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .t-list.vals{grid-template-columns:minmax(0,1fr)}
  .t-quote p{font-size:25px}
 }
