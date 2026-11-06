@@ -25,6 +25,8 @@
   const theme = () => {
     const s = screens.find((s) => { const r = s.getBoundingClientRect(); return r.top <= 32 && r.bottom > 32; });
     top.classList.toggle('dark', !!s && (s.classList.contains('dark') || s.classList.contains('navy')) && !s.classList.contains('lyst'));
+    // midt i en skærm (eller i bunden) får menuen baggrund, så den ikke står oven i teksten
+    top.classList.toggle('solid', !s || s.getBoundingClientRect().top < -8);
   };
   addEventListener('scroll', theme, { passive: true });
   theme();

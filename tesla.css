@@ -14,6 +14,9 @@ html:has(body.tesla){scroll-snap-type:y proximity;scroll-padding-top:0}
 .tesla .top nav .btn{background:transparent;border:0;color:currentColor;font-weight:500;font-size:14px;padding:8px 14px}
 .tesla .top nav .btn:hover{background:rgba(127,127,127,.16)}
 .tesla .top.dark{color:#fff}
+.tesla .top{transition:color .35s ease,background-color .35s ease}
+.tesla .top.solid{background:rgba(243,239,230,.9);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.tesla .top.solid.dark{background:rgba(15,26,44,.86)}
 /* skærmene */
 .t-scr{position:relative;height:100vh;height:100svh;min-height:620px;overflow:hidden;scroll-snap-align:start;display:flex;flex-direction:column;align-items:center;justify-content:space-between;text-align:center;padding:clamp(108px,15vh,160px) 24px clamp(48px,8vh,84px)}
 .t-scr.dark{color:#fff;background:#0b0f17}
@@ -33,19 +36,31 @@ html:has(body.tesla){scroll-snap-type:y proximity;scroll-padding-top:0}
 .t-btn.dark{background:#171A20;color:#fff}.t-btn.dark:hover{background:#30343c}
 .t-btn.ghost{background:rgba(23,26,32,.07);color:#171A20}.t-btn.ghost:hover{background:rgba(23,26,32,.13)}
 .t-note{font-size:13px;line-height:1.5;color:var(--muted);margin:16px 0 0}.t-note a{color:inherit}
+.dark .t-note{color:rgba(255,255,255,.82)}
 /* pillen: fotoet ligger i den nederste del og glider ind i baggrunden foroven */
 .t-scr.pill{background:var(--pillbg)}
 .t-scr.pill picture{position:absolute;left:0;right:0;bottom:0;top:12%;z-index:0}
 .t-scr.pill .t-bg{-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 22%);mask-image:linear-gradient(180deg,transparent 0,#000 22%)}
 /* æsken med 48 kapsler: baggrunden matcher fotoet */
-.t-scr.box{--pillbg:#EFE3D2}   /* fotoets kantfarve, så fotoet toner ud i baggrunden */
-.t-scr.box picture{top:19%;bottom:13%}
-.t-scr.box .t-bg{object-fit:contain;-webkit-mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 58%,transparent 100%);mask-image:radial-gradient(ellipse 50% 50% at 50% 50%,#000 58%,transparent 100%)}
+.t-scr.box{--pillbg:#F3E7D8}
+.t-scr.box picture{inset:0}
+.t-scr.box .t-bg{-webkit-mask-image:none;mask-image:none;object-position:center 58%}
 .t-points{list-style:none;margin:18px 0 0;padding:0;font-size:14px;line-height:1.5;color:var(--muted)}
 .t-points li{padding:3px 0}.t-points a{color:inherit}
 .t-list.five{grid-template-columns:repeat(5,minmax(0,200px))}
 .t-list.vals span{color:var(--muted)}
 .t-list.vals{grid-template-columns:repeat(3,minmax(0,280px))}
+/* delt skærm: citat til venstre, foto til højre (Neurosalg, goal 6. nov: fotoet virkede ikke beskåret i fuld bredde) */
+.t-scr.split{display:grid;grid-template-columns:1fr 1fr;padding:64px 0 0;align-items:stretch;justify-content:stretch;text-align:left;background:var(--cream)}
+.t-scr.split.rev .ph{order:-1}
+.t-scr.split .t-cta{justify-content:flex-start;margin-top:36px;flex-wrap:nowrap}
+.t-scr.split .t-btn{min-width:0;flex:0 0 auto;padding:0 28px}
+.t-scr.split .t-head h1{max-width:560px}
+.t-scr.split .tx{display:flex;flex-direction:column;justify-content:center;padding:32px clamp(40px,7vw,120px) 64px}
+.t-scr.split .t-quote{margin:0;max-width:560px}
+.t-scr.split .ph{position:relative;overflow:hidden}
+.t-scr.split .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;transform:scale(1.07);transition:transform 2.4s cubic-bezier(.2,.7,.2,1)}
+.t-scr.split.vis .ph img{transform:scale(1)}
 /* beviser: logoer og 3 store tal */
 .t-kicker{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 26px}
 .t-logos{list-style:none;margin:0;padding:0;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:24px clamp(32px,5vw,72px)}
@@ -90,8 +105,8 @@ html:has(body.tesla){scroll-snap-type:y proximity;scroll-padding-top:0}
  .t-cta{flex-direction:column;align-items:stretch;width:100%;gap:12px}
  .t-btn{width:100%;min-width:0}
  .t-scr.pill picture{top:18%}
- .t-scr.box picture{top:24%;bottom:17%}
- .t-scr.box{--pillbg:#F2E7DA}
+ .t-scr.box picture{inset:0}
+ .t-scr.box .t-bg{object-position:center 50%}
  /* lyst foto på mobil: teksten står på creme, og fotoet glider ind nedenunder */
  .t-scr.lyst{background:var(--cream)}
  .t-scr.lyst .t-bg{top:auto;bottom:0;height:72%;-webkit-mask-image:linear-gradient(180deg,transparent 0,#000 16%);mask-image:linear-gradient(180deg,transparent 0,#000 16%)}
@@ -105,4 +120,11 @@ html:has(body.tesla){scroll-snap-type:y proximity;scroll-padding-top:0}
  .t-list.five{grid-template-columns:repeat(2,minmax(0,1fr))}
  .t-list.vals{grid-template-columns:minmax(0,1fr)}
  .t-quote p{font-size:25px}
+ .t-scr.split{grid-template-columns:1fr;grid-template-rows:auto 1fr;padding:0}
+ .t-scr.split .tx{padding:96px 20px 28px;text-align:center}
+ .t-scr.split.rev .ph{order:0}
+ .t-scr.split .t-cta{justify-content:center;margin-top:22px;flex-wrap:wrap}
+ .t-scr.split .t-btn{width:100%}
+ .t-list.five li:last-child:nth-child(odd){grid-column:1/-1}
+ .t-scr.split .ph{min-height:0}
 }
