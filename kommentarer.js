@@ -170,11 +170,13 @@ body.kmt-mode,body.kmt-mode *{cursor:crosshair!important}
   }
   // Alle kommentarer som tekst til chatten: først læsbart, så de rå data, så Claude kan finde stedet igen
   function report() {
-    const lines = all.map((c, i) => (i + 1) + '. ' + c.side.replace('.html', '') + ' · ' + (c.omraade || '') + ' · ' + where(c) + '\n   ' + c.tekst);
-    return 'Kommentarer til Lasses side (' + all.length + ')\n\n' + lines.join('\n\n') + '\n\nDATA ' + JSON.stringify(all, (k, v) => k.startsWith('_') ? undefined : v);
+    // Kun de nye: løste kommentarer har Claude allerede
+    const open = all.filter(c => c.status !== 'løst');
+    const lines = open.map((c, i) => (i + 1) + '. ' + c.side.replace('.html', '') + ' · ' + (c.omraade || '') + ' · ' + where(c) + '\n   ' + c.tekst);
+    return 'Kommentarer til Lasses side (' + open.length + ' nye)\n\n' + lines.join('\n\n') + '\n\nDATA ' + JSON.stringify(open, (k, v) => k.startsWith('_') ? undefined : v);
   }
   async function send() {
-    if (!all.length) return toast('Ingen kommentarer endnu', true);
+    if (!all.some(c => c.status !== 'løst')) return toast('Ingen nye kommentarer', true);
     try { await navigator.clipboard.writeText(report()); toast('Kopieret. Sæt det ind i chatten med Claude.', true); }
     catch (e) { location.href = 'mailto:kasper@sedia.dk?subject=' + encodeURIComponent('Kommentarer til Lasses side') + '&body=' + encodeURIComponent(report()); }
   }
@@ -191,7 +193,11 @@ body.kmt-mode,body.kmt-mode *{cursor:crosshair!important}
     if (ONLINE) {
       // Samme svar som kommentar_server.py, men gemt i browseren
       const items = load(), id = sub.slice(1);
-      if (method === 'GET') return items;
+      if (method === 'GET') {
+        // Claudes svar ligger i kommentarer-svar.json ved siden af siden: løste kommentarer bliver grå med svaret
+        try { const r = await fetch('kommentarer-svar.json', { cache: 'no-store' }); if (r.ok) { const s = await r.json(); items.forEach(c => { if (s[c.id]) Object.assign(c, s[c.id]); }); store(items); } } catch (e) {}
+        return items;
+      }
       if (method === 'POST') {
         const c = { ...clean(body), id: Math.random().toString(16).slice(2, 10), oprettet: new Date().toISOString().slice(0, 19).replace('T', ' ') };
         store([...items, c]);
