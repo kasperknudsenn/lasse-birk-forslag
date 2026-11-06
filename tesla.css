@@ -188,6 +188,7 @@ html:has(body.tesla){scroll-snap-type:y proximity;scroll-padding-top:0}
 }
 /* Kasper 6. nov (2): højre side centreret som hos Tesla; rækkerne beholder navn til venstre og Inkluderet til højre */
 .cfg-stats li{text-align:center}
+.cfg-stats span{text-wrap:balance}
 .cfg-card h2,.cfg-card>p,.cfg-points,.cfg-card>blockquote{text-align:center}
 .cfg-card.lasse{display:block;text-align:center}
 .cfg-card.lasse img{display:block;margin:0 auto 14px}
