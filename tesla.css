@@ -131,6 +131,17 @@ html:has(body.tesla){scroll-snap-type:y proximity;scroll-padding-top:0}
  .t-list.five li:last-child:nth-child(odd){grid-column:1/-1}
  .t-scr.split .ph{min-height:0}
 }
+/* Indlæsning (Kasper 6. nov): dækker siden, til den er klar, og toner så væk. Ringen kommer kun frem efter 0,3 sek. */
+.t-load{display:none}
+.js .t-load{display:grid;place-items:center;position:fixed;inset:0;z-index:100;background:var(--cream,#F3EFE6);opacity:1;visibility:visible;transition:opacity .25s ease,visibility 0s}
+.cfgpage .t-load{background:#fff}
+.darkstart .t-load{background:#0B0F17}
+.loaded .t-load{opacity:0;visibility:hidden;transition:opacity .5s ease,visibility 0s linear .5s}
+.t-load span{width:30px;height:30px;border-radius:50%;border:2px solid rgba(23,26,32,.12);border-top-color:#171A20;opacity:0;animation:tl-spin .9s linear infinite,tl-in .3s ease .3s forwards}
+.darkstart .t-load span{border-color:rgba(255,255,255,.18);border-top-color:#fff}
+@keyframes tl-spin{to{transform:rotate(360deg)}}
+@keyframes tl-in{to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.t-load span{animation:tl-in .3s ease .3s forwards}}
 /* Neurosalg som Teslas design-side: foto til venstre, indhold til højre, køb i bunden (Kasper 6. nov) */
 .cfgpage{background:#fff;padding-bottom:84px}
 .cfgpage .top,.cfgpage .top.solid{background:rgba(255,255,255,.96)}
