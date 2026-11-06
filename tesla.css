@@ -186,3 +186,20 @@ html:has(body.tesla){scroll-snap-type:y proximity;scroll-padding-top:0}
  .cfg-bar .t-btn{min-width:0;flex:1;max-width:220px}
  .cfgpage{padding-bottom:76px}
 }
+/* Kasper 6. nov (2): højre side centreret som hos Tesla; rækkerne beholder navn til venstre og Inkluderet til højre */
+.cfg-stats li{text-align:center}
+.cfg-card h2,.cfg-card>p,.cfg-points,.cfg-card>blockquote{text-align:center}
+.cfg-card.lasse{display:block;text-align:center}
+.cfg-card.lasse img{display:block;margin:0 auto 14px}
+.cfg-team{text-align:center;font-size:14px;color:var(--muted);margin:28px 0 0}
+.cfg-team a{color:#171A20;font-weight:500}
+.cfg-cap{position:absolute;left:0;right:0;bottom:28px;margin:0;padding:0 24px;text-align:center;font-size:15px;line-height:1.4;font-weight:500;color:#171A20;opacity:.8}
+.cfg-pic.foto img{object-position:center 35%}
+.cfg-pic.pille img{object-position:center 50%}
+.cfg-pic.graf{display:flex;align-items:center;justify-content:center;background:#F3E9DC}
+.cfg-pic.graf .pill-svg{width:min(70%,620px);height:auto;margin-top:-40px}
+@media (max-width:900px){
+ .cfg-pic.foto img{object-position:center 30%}
+ .cfg-pic.graf .pill-svg{width:84%;margin-top:-30px}
+ .cfg-cap{bottom:18px;font-size:14px}
+}
