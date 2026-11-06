@@ -131,3 +131,58 @@ html:has(body.tesla){scroll-snap-type:y proximity;scroll-padding-top:0}
  .t-list.five li:last-child:nth-child(odd){grid-column:1/-1}
  .t-scr.split .ph{min-height:0}
 }
+/* Neurosalg som Teslas design-side: foto til venstre, indhold til højre, køb i bunden (Kasper 6. nov) */
+.cfgpage{background:#fff;padding-bottom:84px}
+.cfgpage .top,.cfgpage .top.solid{background:rgba(255,255,255,.96)}
+.cfg{display:grid;grid-template-columns:minmax(0,1fr) 460px;padding-top:64px}
+.cfg-pic{position:sticky;top:64px;height:calc(100vh - 148px);min-height:420px;overflow:hidden;background:#F3E7D8}
+.cfg-pic img{display:block;width:100%;height:100%;object-fit:cover;object-position:center 58%}
+.cfg-panel{padding:44px 36px 48px}
+.cfg-head{text-align:center}
+.cfg-head h1{font-size:40px;font-weight:500;letter-spacing:-.02em;line-height:1.1;margin:0}
+.cfg-head p{font-size:15px;line-height:1.5;color:var(--muted);margin:10px auto 0;max-width:340px}
+.cfg-stats{list-style:none;margin:30px 0 22px;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.cfg-stats b{display:block;font-size:26px;font-weight:500;letter-spacing:-.02em;line-height:1}
+.cfg-stats span{display:block;margin-top:6px;font-size:13px;line-height:1.35;color:var(--muted)}
+.cfg-opt{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:16px 18px;margin-top:12px;border:1px solid #D0D1D2;border-radius:4px;background:#fff;color:inherit;text-decoration:none;transition:border-color .2s}
+.cfg-opt:hover{border-color:#8E8E8E}
+.cfg-opt.on{border:2px solid #171A20;padding:15px 17px}
+.cfg-opt b{display:block;font-size:15px;font-weight:600}
+.cfg-opt small,.cfg-rows small{display:block;font-size:13px;line-height:1.4;color:var(--muted);margin-top:2px}
+.cfg-opt em,.cfg-rows em{font-style:normal;font-size:14px;white-space:nowrap}
+.cfg-card{background:#F4F4F4;border-radius:8px;padding:24px;margin-top:20px}
+.cfg-card h2{font-size:22px;font-weight:500;letter-spacing:-.01em;margin:0 0 12px}
+.cfg-card p{font-size:15px;line-height:1.55;margin:0}
+.cfg-rows{list-style:none;margin:0;padding:0}
+.cfg-rows li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:12px 0;border-top:1px solid #E2E2E2}
+.cfg-rows li:first-child{border-top:0;padding-top:4px}
+.cfg-rows b{font-size:15px;font-weight:600}
+.cfg-rows em{color:var(--muted)}
+.cfg-card blockquote{margin:0;font-size:19px;line-height:1.4;font-weight:500;letter-spacing:-.01em}
+.cfg-card cite{display:block;margin-top:12px;font-style:normal;font-size:13px;font-weight:400;color:var(--muted);letter-spacing:0}
+.cfg-card.lasse{display:grid;grid-template-columns:64px minmax(0,1fr);gap:16px;align-items:start}
+.cfg-card.lasse img{width:64px;height:64px;border-radius:50%;object-fit:cover}
+.cfg-card.lasse blockquote{font-size:16px}
+.cfg-points{list-style:none;margin:0;padding:0;font-size:15px;line-height:1.5}
+.cfg-points li{padding:4px 0}.cfg-points a{color:inherit}
+.cfg-bar{position:fixed;left:0;right:0;bottom:0;z-index:30;height:84px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:0 40px;background:#fff;border-top:1px solid #E6E6E6}
+.cfg-bar .who b{display:block;font-size:17px;font-weight:600}
+.cfg-bar .who small{display:block;font-size:13px;color:var(--muted);margin-top:2px}
+.cfg-bar .buy{display:flex;align-items:center;gap:28px}
+.cfg-price{text-align:right}
+.cfg-price b{display:block;font-size:22px;font-weight:500;letter-spacing:-.01em;line-height:1.1}
+.cfg-price small{display:block;font-size:12px;color:var(--muted);margin-top:2px}
+.cfg-bar .t-btn{min-width:220px}
+@media (max-width:900px){
+ .cfg{grid-template-columns:minmax(0,1fr);padding-top:56px}
+ .cfg-pic{position:relative;top:0;height:46vh;min-height:300px}
+ .cfg-pic img{object-position:center 50%}
+ .cfg-panel{padding:28px 18px 32px}
+ .cfg-head h1{font-size:32px}
+ .cfg-bar{height:76px;padding:0 16px}
+ .cfg-bar .who{display:none}
+ .cfg-bar .buy{width:100%;justify-content:space-between;gap:14px}
+ .cfg-price{text-align:left}
+ .cfg-bar .t-btn{min-width:0;flex:1;max-width:220px}
+ .cfgpage{padding-bottom:76px}
+}
