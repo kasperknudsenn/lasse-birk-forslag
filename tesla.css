@@ -61,6 +61,9 @@ html:has(body.tesla){scroll-snap-type:y proximity;scroll-padding-top:0}
 .t-scr.split .ph{position:relative;overflow:hidden}
 .t-scr.split .ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 30%;transform:scale(1.07);transition:transform 2.4s cubic-bezier(.2,.7,.2,1)}
 .t-scr.split.vis .ph img{transform:scale(1)}
+.t-scr.navy .t-kicker{color:rgba(243,239,230,.62)}
+.t-scr.navy .t-list.vals span{color:rgba(243,239,230,.72)}
+.t-scr.navy .t-btn.glass{background:rgba(243,239,230,.12)}.t-scr.navy .t-btn.glass:hover{background:rgba(243,239,230,.2)}
 /* beviser: logoer og 3 store tal */
 .t-kicker{font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);margin:0 0 26px}
 .t-logos{list-style:none;margin:0;padding:0;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:24px clamp(32px,5vw,72px)}
